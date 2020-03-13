@@ -1,3 +1,13 @@
-import { example } from './example.js';
+import Home from './pages/home.js';
+import Login from './pages/login.js';
+import CreateAccount from './pages/createAccount.js';
+import different from './pages/404.js'
+//export { components };
 
-example();
+export const components = {
+    home: Home,
+    login: Login,
+    account: CreateAccount,
+    nonExistent: different
+
+}
