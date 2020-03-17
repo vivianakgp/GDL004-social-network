@@ -8,11 +8,11 @@ export default () => {
      //anchores of home y login 
      const anchor = document.createElement("a");
      anchor.setAttribute("href","#/");
-     anchor.innerHTML = "Inicio";
+     anchor.innerHTML = "Home";
 
      const anchor2=document.createElement("a");
-     anchor2.setAttribute("href","#/entrar");
-     anchor2.innerHTML="Entrar";
+     anchor2.setAttribute("href","#/login");
+     anchor2.innerHTML="Log in";
     
     // div container of form create new account
     const div_form = document.createElement("form");

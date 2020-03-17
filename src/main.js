@@ -1,9 +1,9 @@
-import { controlador } from './controlador.js';
+import { controler } from '../controlador/controler.js';
 
 const init = () => {
-    controlador.changeTmp(window.location.hash);
+    controler.changeTmp(window.location.hash);
     window.addEventListener('hashchange', () => {
-        controlador.changeTmp(window.location.hash);
+        controler.changeTmp(window.location.hash);
     })
 };
 window.addEventListener('load', init);

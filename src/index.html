@@ -11,5 +11,29 @@
 
   <section id="container"></section>
   <script type="module" src="main.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB5YV6BR61oHUh-0TIlkDg1n88ls7B34-M",
+    authDomain: "educa-7cd01.firebaseapp.com",
+    databaseURL: "https://educa-7cd01.firebaseio.com",
+    projectId: "educa-7cd01",
+    storageBucket: "educa-7cd01.appspot.com",
+    messagingSenderId: "343958493042",
+    appId: "1:343958493042:web:c7c1310f30dc34968b2feb",
+    measurementId: "G-SBMYS2C1FJ"
+  };
+  // Initialize Firebase
+  let data=firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  //console.log(data);
+</script>
 </body>
 </html>

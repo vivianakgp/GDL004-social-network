@@ -13,31 +13,32 @@ export default () => {
    div1.appendChild(p_texto);
 
   //crear un div nuevo que contenga los input email y contraseña y btn de submit y aderirl o al div padre divElementos
-  const div_formLogin = document.createElement("form");
-  div_formLogin.setAttribute("class","item-login");
-  div_formLogin.setAttribute("id","formEntrar");
+  const divSignUp = document.createElement("form");
+ divSignUp.setAttribute("class","item-login");
+ divSignUp.setAttribute("id","formSignUp");
 
 
  const inputEmail = document.createElement("input");
  inputEmail.setAttribute("type","text");
  inputEmail.setAttribute("placeholder","Email");
  inputEmail.setAttribute("name","email");
- div_formLogin.appendChild(inputEmail);
+divSignUp.appendChild(inputEmail);
  
  const inputPass = document.createElement("input");
  inputPass.setAttribute("type","text");
  inputPass.setAttribute("placeholder","PassWord");
  inputPass.setAttribute("name","password");
- div_formLogin.appendChild(inputPass);
+ divSignUp.appendChild(inputPass);
  
 
-const btn_iniciar = document.createElement("input");
-btn_iniciar.setAttribute("class","form-login--submit");
-btn_iniciar.setAttribute("type","submit");
-btn_iniciar.setAttribute("value","iniciar sesion");
-div_formLogin.appendChild(btn_iniciar);
+const btnSignUp = document.createElement("input");
+btnSignUp.setAttribute("class","form-login--submit");
+btnSignUp.setAttribute("type","submit");
+btnSignUp.setAttribute("id","btnSignUp");
+btnSignUp.setAttribute("value","Sign up");
+divSignUp.appendChild(btnSignUp);
 
-divLogin.appendChild(div_formLogin);
+divLogin.appendChild(divSignUp);
 
 //crear div con elemento parrafo y agredarlo a div padre//
 const div5_p = document.createElement("div");
