@@ -28,13 +28,15 @@ export const controler = {
 //mandar llamar al modelo con su metodo authEmailAndPassword 
     //esto es necesrio para enlasar el modelo con la vista 
      init : {
-        contolerAuthEmailAndPassword: ( ) => vista.init.signUp()
+        contolerAuthEmailAndPassword: ( ) => vista.init.signUp(),
+       
 
-    },
+     },
 
      authEmailAndPassword: (infoUser ) => {
         //mandar info a modelo para hacer peticion a firebase
-       modelo.authEmailAndPassword(infoUser);
-     }
+        modelo.authEmailAndPassword(infoUser);
+        //promesa.then (muestra #/blog)
+      }
 
 };

@@ -14,28 +14,38 @@ export { components , vista };
 };
 
 const  vista = {
+
  init: {
- signUp : () => {
- const formSignUp = document.getElementById('formSignUp');
-
- formSignUp.addEventListener('submit', function(event){
-      event.preventDefault();
-  const infUser = {
-      email:formSignUp.email.value,
-      pass:formSignUp.password.value
+    signUp : () => {
+        const formSignUp = document.getElementById('formSignUp');
+        
+        formSignUp.addEventListener('submit', function(event){
+        event.preventDefault();
+        const infUser = {
+        email:formSignUp.email.value,
+        pass:formSignUp.password.value
+        }
+        formSignUp.reset();
+        if ( infUser.email !== '' && infUser.pass.length >= 7 ){
+        controler.authEmailAndPassword(infUser);
+        }else{
+        alert('please check your email or password');
+        
+        }
+        
+        });
+        
+        },
   }
-  formSignUp.reset();  
-if( infUser.email !== '' && infUser.pass.length >= 7 ){
-    controler.authEmailAndPassword(infUser);
-    
-}else{
-    alert('please check your email or password');
-}
+ }
+
+
+
+ //controler.authEmailAndPassword(infUser);
+ //nancyrubidelatorre@gmail.com.
+
  
-});
- }
 
- }
 
- }
 
+    
