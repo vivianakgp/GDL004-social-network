@@ -11,32 +11,44 @@ export const controler = {
                 break;
             case '#/login':
                 sectionMain.appendChild(components.login());
-                   controler.init.contolerAuthEmailAndPassword();                    
+                controler.start.signIn();
+                                 
                break;
             case '#/createAccount':
-                sectionMain.appendChild(components.account());
+                sectionMain.appendChild(components.cerateAccount());
+                controler.start.signUp();
                 break;
             case '#/blog':
-               // sectionMain.appendChild(components.blog());
+                 sectionMain.appendChild(components.blog());
+                 //vista.createPost();
                 break;
                 default:
+                    
                  sectionMain.appendChild(components.nonExistent());
-                   //sectionMain.appendChild(components.login());
+                  
        }
     },
 
 //mandar llamar al modelo con su metodo authEmailAndPassword 
     //esto es necesrio para enlasar el modelo con la vista 
-     init : {
-        contolerAuthEmailAndPassword: ( ) => vista.init.signUp(),
-       
 
-     },
 
-     authEmailAndPassword: (infoUser ) => {
+     start: {
+         signUp: ( ) => vista.signUp(),
+         signIn: ( ) => vista.signIn()
+    },
+
+     authEmailAndPassword: (infUser ) => {
         //mandar info a modelo para hacer peticion a firebase
-        modelo.authEmailAndPassword(infoUser);
-        //promesa.then (muestra #/blog)
+        modelo.authEmailAndPassword(infUser);
+        
+      },
+      authExistUser: (infUser) => {
+       modelo.authExistUser(infUser);
       }
+
+    //   createPost: (infPost)=> {
+    //       modelo.cratePost(infPost);
+    //   }
 
 };

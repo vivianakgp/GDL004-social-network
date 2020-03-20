@@ -12,19 +12,19 @@ export default () => {
 
      const anchor2=document.createElement("a");
      anchor2.setAttribute("href","#/login");
-     anchor2.innerHTML="Log in";
+     anchor2.innerHTML="Login";
     
     // div container of form create new account
     const div_form = document.createElement("form");
     div_form.setAttribute("class","div_form");
-    div_form.setAttribute("id","formulario");
-
+    div_form.setAttribute("id","formSingUp");
+    //div_form.getAttribute("autofocus");
     //Input name
     const inputTextName = document.createElement("input");
     inputTextName.setAttribute("type", "text");
     inputTextName.setAttribute("placeholder", " Nombre");
     inputTextName.setAttribute("class", "item-cuenta");
-    inputTextName.setAttribute("name", "nombre");
+    inputTextName.setAttribute("name", "name");
 
     //Input Email
     const inputEmail = document.createElement("input");
@@ -34,22 +34,23 @@ export default () => {
     inputEmail.setAttribute("name", "email");
     //Input Password
     const inputPass = document.createElement("input");
-    inputPass.setAttribute("type", "text");
+    inputPass.setAttribute("type", "password");
     inputPass.setAttribute("placeholder", "Password");
     inputPass.setAttribute("class", "item-cuenta");
     inputPass.setAttribute("name", "password");
      //Input confirmar Password
     const input_confirmPass = document.createElement("input");
-    input_confirmPass.setAttribute("type", "text");
+    input_confirmPass.setAttribute("type", "password");
     input_confirmPass.setAttribute("placeholder", " Confirmar Password");
     input_confirmPass.setAttribute("class", "item-cuenta");
     input_confirmPass.setAttribute("name", "confirmPass");
+    input_confirmPass.getAttribute("required");
     //Input Boton Aceptar....este debe hacer un evento a la funcion de Signup
     const input_createAccount = document.createElement("input")
     input_createAccount.setAttribute("type", "submit");
-    input_createAccount.setAttribute("value", "newAccount");
+    input_createAccount.setAttribute("value", "registrarse");
     input_createAccount.setAttribute("class", "cuenta_btn");
-    input_createAccount.setAttribute("id", "boton_crearCuenta");//se le agrego el name para pruebas de funcionalidad
+    input_createAccount.setAttribute("id", "btnSignUp");//se le agrego el name para pruebas de funcionalidad
     
     const elemnt_a = document.createElement("a");
     elemnt_a.setAttribute("href", "#/blog");

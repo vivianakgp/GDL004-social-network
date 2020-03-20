@@ -13,9 +13,7 @@ export default () => {
              <li>
                 <a href = "#/createAccount">CREAR CUENTA</a>
              </li>
-             </li>
-               <a href = '#/blog'>BLOG</a>
-             </li>  
+            
            </ul>
           </nav>
              
