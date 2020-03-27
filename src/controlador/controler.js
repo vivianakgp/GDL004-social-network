@@ -21,7 +21,7 @@ export const controler = {
                 break;
             case '#/blog':
                  sectionMain.appendChild(components.blog());
-                   controler.start.createPost();
+                   
                 break;
                 default:
                     
@@ -37,22 +37,24 @@ export const controler = {
      start: {
          signUp: ( ) => vista.signUp(),
          signIn: ( ) => vista.signIn(),        
-         createPost: ( ) => vista.createPost()
+         
     },
 
      authEmailAndPassword: (infUser ) => {
         //mandar info a modelo para hacer peticion a firebase
         modelo.authEmailAndPassword(infUser);
-        
+        modelo.createUserColletion(infUser);
         
       },
       authExistUser: (infUser) => {
-       modelo.authExistUser(infUser);
-       modelo.observer(infUser)
+        modelo.observer(infUser)
+       return modelo.authExistUser(infUser);
+       
 
       },
       
       createPost: (newPostUser)=> {
+          modelo.observer()
           modelo.createPost(newPostUser);
       }
 

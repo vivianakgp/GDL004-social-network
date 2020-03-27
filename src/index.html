@@ -24,6 +24,7 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+<!---->
 
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
 
@@ -40,9 +41,20 @@
     measurementId: "G-SBMYS2C1FJ"
   };
   // Initialize Firebase
-  let data=firebase.initializeApp(firebaseConfig);
+  let data = firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   //console.log(data);
+
+
+  // Initialize Cloud Firestore through Firebase
+ //firebase.initializeApp({
+//  apiKey: '### FIREBASE API KEY ###',
+//    authDomain: '### FIREBASE AUTH DOMAIN ###',
+//   projectId: '### CLOUD FIRESTORE PROJECT ID ###'
+//  });
+
+// var db = firebase.firestore();
+
 </script>
 </body>
 </html>

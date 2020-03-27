@@ -17,13 +17,8 @@ import { controler } from '../controlador/controler.js';
      },
 
      authExistUser: (infUser ) => {
-      firebase.auth().signInWithEmailAndPassword(infUser.email, infUser.pass)
-      .then(() => { 
-        controler.changeTmp('#/blog')
-      })
-      .catch(( ) => {
-        alert('no tienes cuenta aun')
-      });
+      return firebase.auth().signInWithEmailAndPassword(infUser.email, infUser.pass)
+
            
    
         
@@ -36,8 +31,10 @@ import { controler } from '../controlador/controler.js';
   observer:( ) => {
     firebase.auth().onAuthStateChanged(function(infUser) {
      if (infUser) {
+       //retornar una promesa 
+
       // User is signed in.
-      console.log('existe usuario activo');
+      console.log('existe usuario "activo"');
      } else {
       // No user is signed in.
       console.log('no existe usuario activo');
@@ -59,7 +56,53 @@ import { controler } from '../controlador/controler.js';
         console.error("Error adding document: ", error);
       });
 
-     }
+     },
+    createUserColletion:(infUser )=> {
+      // Add a new document with a generated id.
+      firebase.firestore().collection("users").add({
+        name:infUser.name,
+        email:infUser.email,
+        password:infUser.pass,
+        id:"aqui id"
+      })
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+
+     },
+    creatuser:( )=> {
+    } 
+
+      // Add a second document with a generated ID.
+     /* db.collection("post").add({
+        first: "Alan",
+        middle: "Mathison",
+        last: "Turing",
+        born: 1912
+      })
+      .then(function(docRef) {
+         console.log("Document written with ID: ", docRef.id);
+      })
+       .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+
+
+
+
+    //visor
+      db.collection("users").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+        });
+    });
+    */
+     
+     
+
 
     
 

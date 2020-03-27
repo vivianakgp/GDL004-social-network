@@ -27,8 +27,7 @@ const  vista = {
          pass:formSignUp.password.value,
          confirmPass:formSignUp.confirmPass.value
          
-       }
-       formSignUp.reset();
+       }    
        
        if( infUser.name == '' ){
         alert('please fill out all a fields');       
@@ -36,8 +35,9 @@ const  vista = {
          alert('please ckeck your password')
        }else{
         controler.authEmailAndPassword(infUser);
-       }
         
+       }
+       formSignUp.reset();
        
 
      })
@@ -56,7 +56,13 @@ const  vista = {
      }
      formSignIn.reset();
      if ( infUser.email !== '' && infUser.pass.length >= 7 ){
-      //controler.authExistUser(infUser);
+      controler.authExistUser(infUser)
+      .then(() => { 
+        controler.changeTmp('#/blog')
+      })
+      .catch(( ) => {
+        alert('no tienes cuenta aun')
+      });
       console.log(infUser);
 
      }else{
