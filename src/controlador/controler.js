@@ -12,6 +12,7 @@ export const controler = {
             case '#/login':
                 sectionMain.appendChild(components.login());
                 controler.start.signIn();
+               
                                  
                break;
             case '#/createAccount':
@@ -20,7 +21,7 @@ export const controler = {
                 break;
             case '#/blog':
                  sectionMain.appendChild(components.blog());
-                 //vista.createPost();
+                   controler.start.createPost();
                 break;
                 default:
                     
@@ -35,20 +36,24 @@ export const controler = {
 
      start: {
          signUp: ( ) => vista.signUp(),
-         signIn: ( ) => vista.signIn()
+         signIn: ( ) => vista.signIn(),        
+         createPost: ( ) => vista.createPost()
     },
 
      authEmailAndPassword: (infUser ) => {
         //mandar info a modelo para hacer peticion a firebase
         modelo.authEmailAndPassword(infUser);
         
+        
       },
       authExistUser: (infUser) => {
        modelo.authExistUser(infUser);
-      }
+       modelo.observer(infUser)
 
-    //   createPost: (infPost)=> {
-    //       modelo.cratePost(infPost);
-    //   }
+      },
+      
+      createPost: (newPostUser)=> {
+          modelo.createPost(newPostUser);
+      }
 
 };

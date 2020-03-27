@@ -19,20 +19,47 @@ import { controler } from '../controlador/controler.js';
      authExistUser: (infUser ) => {
       firebase.auth().signInWithEmailAndPassword(infUser.email, infUser.pass)
       .then(() => { 
-        console.log('si existe user')
+        controler.changeTmp('#/blog')
       })
       .catch(( ) => {
-        console.log('no existe user')
+        alert('no tienes cuenta aun')
       });
-       
-       
-       
+           
+   
         
-       
+     },
+
+    
+  //instala observador de objeto para : escuchar de Auth recibe notificaciones 
+  //cuando sucede algo importante en el objeto de Auth
+  //se va ejecutar en vista de login
+  observer:( ) => {
+    firebase.auth().onAuthStateChanged(function(infUser) {
+     if (infUser) {
+      // User is signed in.
+      console.log('existe usuario activo');
+     } else {
+      // No user is signed in.
+      console.log('no existe usuario activo');
+     }
+   });
+  },
+     
+     
+     createPost: (newPostUser) => {
+       console.log(newPostUser);
+       // Add a new document with a generated id.
+       firebase.firestore().collection("posts").add({
+        texto: newPostUser,
+      })
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
 
      }
-
-  
 
     
 
@@ -83,12 +110,17 @@ firebase.auth().onAuthStateChanged(function(infUser ) {
    } */
 
 
+/*
+ observerUser: ( infoUser) => {
+      firebase.auth().onAuthStateChanged(function(infUser) {
+        if (user) {
+          // User is signed in.
+        } else {
+          // No user is signed in.
+        }
+      });
 
+     }
+ */
 
-
-  //  createPost: (infoPost ) => {
-  //      //mandar la infPost algun maldito lugar en firebase
-  //      //peroooo dentro de la sesion de algun ususario
-
-  //  }
    
