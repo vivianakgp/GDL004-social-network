@@ -4,24 +4,11 @@ import { controler } from '../controlador/controler.js';
  export const modelo = {
 
   authEmailAndPassword: function authUser(infUser ){
-    //console.log(infUser.pass ,infUser.confirmPass);
-    firebase.auth().createUserWithEmailAndPassword(infUser.email , infUser.pass)
-    .then(( ) => {
-       
-      controler.changeTmp('#/login');
-  
-     })
-     .catch((error)=> {
-       alert(error);
-       })
+   return firebase.auth().createUserWithEmailAndPassword(infUser.email , infUser.pass)
      },
 
      authExistUser: (infUser ) => {
-      return firebase.auth().signInWithEmailAndPassword(infUser.email, infUser.pass)
-
-           
-   
-        
+      return firebase.auth().signInWithEmailAndPassword(infUser.email, infUser.pass)  
      },
 
     

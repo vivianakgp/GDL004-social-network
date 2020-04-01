@@ -19,28 +19,37 @@ const  vista = {
     
   signUp : () => {
     const formSignUp = document.getElementById('formSingUp');
-     formSignUp.addEventListener('submit' , (event) => {
-       event.preventDefault();
-       const infUser = {
-         name:formSignUp.name.value,
-         email:formSignUp.email.value,
-         pass:formSignUp.password.value,
-         confirmPass:formSignUp.confirmPass.value
-         
-       }    
-       
-       if( infUser.name == '' ){
+     formSignUp.addEventListener('submit' , (e ) => {
+       e.preventDefault();
+      const infUser = {
+        name:formSignUp.name.value,
+        email:formSignUp.email.value,
+        pass:formSignUp.password.value,
+        confirmPass:formSignUp.confirmPass.value
+        
+      }
+      formSignUp.reset();
+      console.log(infUser.name);
+      if( infUser.name == '' ){
         alert('please fill out all a fields');       
        }else if(infUser.confirmPass !== infUser.pass){
          alert('please ckeck your password')
        }else{
-        controler.authEmailAndPassword(infUser);
-        
+        controler.authEmailAndPassword(infUser)
+        .then(( ) => {
+       
+          controler.changeTmp('#/login');
+      
+         })
+         .catch((error)=> {
+           alert(error);
+           })
        }
-       formSignUp.reset();
+       });
+      
        
 
-     })
+      
   },
 
 
@@ -68,32 +77,10 @@ const  vista = {
      }else{
      alert('please check your email or password');
   
-     }
-  
-     
-     
-      
-      
+     };   
 
-   })
-    /*btnIngrso.addEventListener('submit', function(event){
-    event.preventDefault();
-     const infUser = {
-      email:formSignIn.email.value,
-      pass:formSignIn.password.value
-     }
-      formSignIn.reset();
-     if ( infUser.email !== '' && infUser.pass.length >= 7 ){
-      //controler.authExistUser(infUser);
-      console.log(infUser);
-
-     }else{
-     alert('please check your email or password');
-  
-     }
-  
    });
-  */
+    
   },
 
  
@@ -128,3 +115,18 @@ const  vista = {
 
  }
 
+/* const infUser = {
+         name:formSignUp.name.value,
+         email:formSignUp.email.value,
+         pass:formSignUp.password.value,
+         confirmPass:formSignUp.confirmPass.value
+         
+       }    
+       
+       if( infUser.name == '' ){
+        alert('please fill out all a fields');       
+       }else if(infUser.confirmPass !== infUser.pass){
+         alert('please ckeck your password')
+       }else{
+        controler.authEmailAndPassword(infUser);
+        */ 

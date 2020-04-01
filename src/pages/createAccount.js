@@ -1,93 +1,94 @@
 export default () => {
-    const divNewAccount = document.createElement("div");
-    divNewAccount.setAttribute("id", "_container");
-    //div container of anchores
-    const div_anchore = document.createElement("div");
-    div_anchore.setAttribute("class", "anchors");
 
-     //anchores of home y login 
-     const anchor = document.createElement("a");
-     anchor.setAttribute("href","#/");
-     anchor.innerHTML = "Home";
+  const divNewAccount = document.createElement("div");
+  divNewAccount.setAttribute("class","modal-dialog text-center");
 
-     const anchor2=document.createElement("a");
+  const divSeccion = document.createElement("div");
+  divSeccion.setAttribute("class","col-sm-8");
+
+  const divModal = document.createElement("div");
+  divModal.setAttribute("class","modal-content ");
+
+  const divText = document.createElement("div");
+  divText.setAttribute("class","col-12 divText");
+
+  const parrafo = document.createElement("p");
+  const text = document.createTextNode("Crea una cuenta en Edularity");
+  const elemntParrafo = parrafo.appendChild(text);
+
+  const divRegistro = document.createElement("form");
+  divRegistro.setAttribute("class","col-12 formulario");
+  divRegistro.setAttribute("id","formSingUp");
+
+  const divName = document.createElement("div");
+  divName.setAttribute("class","form-group");
+  
+  const name = document.createElement("input");
+  name.setAttribute("type", "text");
+  name.setAttribute("placeholder", " Nombre");
+  name.setAttribute("class", "form-control form-control-lg");
+  name.setAttribute("name", "name");
+  
+  const divEmail = document.createElement("div");
+  divEmail.setAttribute("class","form-group");
+
+  const email = document.createElement("input");
+  email.setAttribute("type", "text");
+  email.setAttribute("placeholder", " Email");
+  email.setAttribute("class", "form-control form-control-lg");
+  email.setAttribute("name", "email");
+
+  const divPassword = document.createElement("div");
+  divPassword.setAttribute("class","form-group");
+  
+  const pass = document.createElement("input");
+    pass.setAttribute("type", "password");
+    pass.setAttribute("placeholder", "Password");
+    pass.setAttribute("class", "form-control form-control-lg");
+    pass.setAttribute("name", "password");
+
+   const divConfirPass = document.createElement("div");
+    divConfirPass.setAttribute("class","form-group");
+   
+    const confirPass = document.createElement("input");
+    confirPass.setAttribute("type", "password");
+    confirPass.setAttribute("placeholder", " Confirmar Password");
+    confirPass.setAttribute("class", "form-control form-control-lg");
+    confirPass.setAttribute("name", "confirmPass");
+
+    const btnRegistrar = document.createElement("input")
+    btnRegistrar.setAttribute("type", "submit");
+    btnRegistrar.setAttribute("value", "registrarse");
+    btnRegistrar.setAttribute("class", "btn btn-primary btn-lg btn-block");
+    btnRegistrar.setAttribute("id", "btnSignUp");
+
+    const anchor = document.createElement("a");
+    anchor.setAttribute("href","#/");
+    anchor.setAttribute("class","btn btn-outline-success")
+    anchor.innerHTML = "Home";
+
+    const anchor2 = document.createElement("a");
      anchor2.setAttribute("href","#/login");
+     anchor2.setAttribute("class","btn btn-outline-primary ")
      anchor2.innerHTML="Login";
-    
-    // div container of form create new account
-    const div_form = document.createElement("form");
-    div_form.setAttribute("class","div_form");
-    div_form.setAttribute("id","formSingUp");
-    //div_form.getAttribute("autofocus");
-    //Input name
-    const inputTextName = document.createElement("input");
-    inputTextName.setAttribute("type", "text");
-    inputTextName.setAttribute("placeholder", " Nombre");
-    inputTextName.setAttribute("class", "item-cuenta");
-    inputTextName.setAttribute("name", "name");
 
-    //Input Email
-    const inputEmail = document.createElement("input");
-    inputEmail.setAttribute("type", "text");
-    inputEmail.setAttribute("placeholder", " Email");
-    inputEmail.setAttribute("class", "item-cuenta");
-    inputEmail.setAttribute("name", "email");
-    //Input Password
-    const inputPass = document.createElement("input");
-    inputPass.setAttribute("type", "password");
-    inputPass.setAttribute("placeholder", "Password");
-    inputPass.setAttribute("class", "item-cuenta");
-    inputPass.setAttribute("name", "password");
-     //Input confirmar Password
-    const input_confirmPass = document.createElement("input");
-    input_confirmPass.setAttribute("type", "password");
-    input_confirmPass.setAttribute("placeholder", " Confirmar Password");
-    input_confirmPass.setAttribute("class", "item-cuenta");
-    input_confirmPass.setAttribute("name", "confirmPass");
-    input_confirmPass.getAttribute("required");
-    //Input Boton Aceptar....este debe hacer un evento a la funcion de Signup
-    const input_createAccount = document.createElement("input")
-    input_createAccount.setAttribute("type", "submit");
-    input_createAccount.setAttribute("value", "registrarse");
-    input_createAccount.setAttribute("class", "cuenta_btn");
-    input_createAccount.setAttribute("id", "btnSignUp");//se le agrego el name para pruebas de funcionalidad
-    
-    const elemnt_a = document.createElement("a");
-    elemnt_a.setAttribute("href", "#/blog");
-    input_createAccount.appendChild(elemnt_a);
-
-   
-    divNewAccount.appendChild(div_anchore);
-    div_anchore.appendChild(anchor);
-    div_anchore.appendChild(anchor2);
-   
-    div_form.appendChild(inputTextName);
-    div_form.appendChild(inputEmail);
-    div_form.appendChild(inputPass);
-    div_form.appendChild(input_confirmPass);
-    div_form.appendChild( input_createAccount);
-
-    divNewAccount.appendChild(div_form);
-    
+  divNewAccount.appendChild(divSeccion);
+  divSeccion.appendChild(divModal);
+  divModal.appendChild(divRegistro);
+  divRegistro.appendChild(anchor);
+  divRegistro.appendChild(anchor2);
+  divRegistro.appendChild(divText);
+  divText.appendChild(elemntParrafo);
+  divRegistro.appendChild(divName);
+  divName.appendChild(name);
+  divRegistro.appendChild(divEmail);
+  divEmail.appendChild(email);
+  divRegistro.appendChild(divPassword);
+  divPassword.appendChild(pass);
+  divRegistro.appendChild(divConfirPass);
+  divConfirPass.appendChild(confirPass);
+  divRegistro.appendChild(btnRegistrar);
+  
     return divNewAccount
   
 }
-
-
-
-
-
-
-  //crear boton para regresar a inicio     no direccionan aun!//
-    //const div_btn = document.createElement("div");
-    //div_btn.setAttribute("class", "div_btn");
-    /*const btn = document.createElement("input");
-    btn.setAttribute("type", "submit");
-    btn.setAttribute("value", "inicio");
-    btn.setAttribute("class", "inicio_btn");*/
-
-    //boton de entrar
-    /* const btn2=document.createElement("input");
-     btn2.setAttribute("type","submit");
-     btn2.setAttribute("value","entrar");
-     btn2.setAttribute("class","entrar_btn");*/

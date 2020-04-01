@@ -42,8 +42,9 @@ export const controler = {
 
      authEmailAndPassword: (infUser ) => {
         //mandar info a modelo para hacer peticion a firebase
-        modelo.authEmailAndPassword(infUser);
+         
         modelo.createUserColletion(infUser);
+        return modelo.authEmailAndPassword(infUser);
         
       },
       authExistUser: (infUser) => {
