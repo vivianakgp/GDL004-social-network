@@ -8,11 +8,13 @@ export const controler = {
         switch (hash) {
             case '#/':
                 sectionMain.appendChild(components.home());
+                
                 break;
             case '#/login':
                 sectionMain.appendChild(components.login());
+                
                 controler.start.signIn();
-               
+                 controler.observerUser();
                                  
                break;
             case '#/createAccount':
@@ -30,33 +32,39 @@ export const controler = {
        }
     },
 
-//mandar llamar al modelo con su metodo authEmailAndPassword 
-    //esto es necesrio para enlasar el modelo con la vista 
-
 
      start: {
          signUp: ( ) => vista.signUp(),
          signIn: ( ) => vista.signIn(),        
          
     },
+     
+     observerUser:( )=>{
+         modelo.observerModel();
+       },
 
      authEmailAndPassword: (infUser ) => {
         //mandar info a modelo para hacer peticion a firebase
-         
-        modelo.createUserColletion(infUser);
         return modelo.authEmailAndPassword(infUser);
         
       },
       authExistUser: (infUser) => {
-        modelo.observer(infUser)
+        
        return modelo.authExistUser(infUser);
        
 
       },
-      
+     
+
       createPost: (newPostUser)=> {
-          modelo.observer()
-          modelo.createPost(newPostUser);
+        
+         return modelo.createPost(newPostUser);
+      },
+     
+      getPost:( )=>{
+          return modelo.getPost()
       }
 
-};
+
+
+    }

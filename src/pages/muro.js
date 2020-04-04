@@ -1,20 +1,6 @@
 import { controler } from '../controlador/controler.js';
 export default ( ) => {
 
- /* <div class="container">
-  <div class="row">
-    <div class="col align-self-start">
-      One of three columns
-    </div>
-    <div class="col align-self-center">
-      One of three columns
-    </div>
-    <div class="col align-self-end">
-      One of three columns
-    </div>
-  </div>
-</div>
-*/
     const viewMuro = document.createElement("div");
     viewMuro.setAttribute("class" , "container");
     viewMuro.setAttribute("id" , "viewMuro");
@@ -67,8 +53,24 @@ export default ( ) => {
 
       const newPostUser = textArea.value;
       divForm.reset();
-      controler.createPost(newPostUser)
-      .then()
+      controler.createPost(newPostUser) //luego muestrame ese post creado 
+      .then( ( )=>{
+          return controler.getPost()
+      })
+      .then((querySnapshot) => {
+        
+        querySnapshot.forEach((doc) => {
+            
+              console.log(`${doc.data().text} => ${doc.data().userId}`);
+             // ${doc.id} 
+
+         });
+      })
+      .catch( ( err) =>{
+        alert(err)
+      }) 
+
+
       
     });
 
@@ -80,53 +82,7 @@ export default ( ) => {
     divForm.appendChild(textArea);
     divForm.appendChild(btn_post);
     divMain.appendChild(divNotice);
-
-
-
-
-
-
-
-    /*const title = document.createElement("h1");
-    title.innerHTML="🚥 en construccion 🚧 ";
-    viewMuro.appendChild(title);
-
-    const divPost = document.createElement("form");
-    divPost.setAttribute("id" , "divPost")
-   
-    const textArea = document.createElement("textarea");
-    textArea.setAttribute("id" , "textArea");
-    textArea.setAttribute("placeholder", "¿Que estas pensando? 🤔")
-      
-    const btn_post = document.createElement("input");
-    btn_post.setAttribute("type", "submit");
-    btn_post.setAttribute("value", "publicar");
-    btn_post.setAttribute("id", "btn_post");
     
-    
-    divPost.appendChild(textArea);
-    divPost.appendChild(btn_post);
-    viewMuro.appendChild(divPost);
-    
-    
-    btn_post.disabled = true;
-    textArea.addEventListener('keyup',( ) => {
-      if (textArea.value !==''){
-        btn_post.disabled = false;            
-      }else{
-        btn_post.disabled = true; 
-      }
-    });
-
-    divPost.addEventListener('submit', (e)=> {
-        //console.log(textArea.value)
-        e.preventDefault()
-
-        const newPostUser = textArea.value;
-        controler.createPost(newPostUser);
-        divPost.reset();
-      });
-   */
 
     return viewMuro
 

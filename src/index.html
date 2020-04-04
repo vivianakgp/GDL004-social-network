@@ -12,49 +12,33 @@
   </head>
 <body>
 <section id="container"></section>
+
 <script type="module" src="main.js"></script>
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+   
+<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
-<!---->
-
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB5YV6BR61oHUh-0TIlkDg1n88ls7B34-M",
-    authDomain: "educa-7cd01.firebaseapp.com",
-    databaseURL: "https://educa-7cd01.firebaseio.com",
-    projectId: "educa-7cd01",
-    storageBucket: "educa-7cd01.appspot.com",
-    messagingSenderId: "343958493042",
-    appId: "1:343958493042:web:c7c1310f30dc34968b2feb",
-    measurementId: "G-SBMYS2C1FJ"
-  };
-  // Initialize Firebase
-  let data = firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  //console.log(data);
+<script>  var firebaseConfig = {
+  apiKey: "AIzaSyB5YV6BR61oHUh-0TIlkDg1n88ls7B34-M",
+  authDomain: "educa-7cd01.firebaseapp.com",
+  databaseURL: "https://educa-7cd01.firebaseio.com",
+  projectId: "educa-7cd01",
+  storageBucket: "educa-7cd01.appspot.com",
+  messagingSenderId: "343958493042",
+  appId: "1:343958493042:web:c7c1310f30dc34968b2feb",
+  measurementId: "G-SBMYS2C1FJ"
+};
+// Initialize Firebase
+let data = firebase.initializeApp(firebaseConfig);
+firebase.analytics();</script>
 
-
-  // Initialize Cloud Firestore through Firebase
- //firebase.initializeApp({
-//  apiKey: '### FIREBASE API KEY ###',
-//    authDomain: '### FIREBASE AUTH DOMAIN ###',
-//   projectId: '### CLOUD FIRESTORE PROJECT ID ###'
-//  });
-
-// var db = firebase.firestore();
-
-</script>
 </body>
 </html>

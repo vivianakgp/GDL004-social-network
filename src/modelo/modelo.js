@@ -2,9 +2,26 @@ import { controler } from '../controlador/controler.js';
 
 
  export const modelo = {
+ 
 
+  observerModel: ( ) => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+         controler.changeTmp('#/blog');
+         var user = firebase.auth().currentUser.uid;
+          console.log(user);
+
+          } else {
+          // No user is signed in.
+          console.log('no user is signed in')
+           }
+    });
+  },
+     
+  
   authEmailAndPassword: function authUser(infUser ){
-   return firebase.auth().createUserWithEmailAndPassword(infUser.email , infUser.pass)
+   return firebase.auth().createUserWithEmailAndPassword(infUser.email , infUser.pass);
+   
      },
 
      authExistUser: (infUser ) => {
@@ -15,142 +32,64 @@ import { controler } from '../controlador/controler.js';
   //instala observador de objeto para : escuchar de Auth recibe notificaciones 
   //cuando sucede algo importante en el objeto de Auth
   //se va ejecutar en vista de login
-  observer:( ) => {
-    firebase.auth().onAuthStateChanged(function(infUser) {
-     if (infUser) {
-       //retornar una promesa 
 
-      // User is signed in.
-      console.log('existe usuario "activo"');
-     } else {
-      // No user is signed in.
-      console.log('no existe usuario activo');
-     }
-   });
-  },
-     
      
      createPost: (newPostUser) => {
        console.log(newPostUser);
        // Add a new document with a generated id.
-       firebase.firestore().collection("posts").add({
+
+      return firebase.firestore().collection("posts").add({
         texto: newPostUser,
+        userId: firebase.auth().currentUser.uid
       })
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
+      
 
      },
-    createUserColletion:(infUser )=> {
-      // Add a new document with a generated id.
-      firebase.firestore().collection("users").add({
-        name:infUser.name,
-        email:infUser.email,
-        password:infUser.pass,
-        id:"aqui id"
-      })
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
 
-     },
-    creatuser:( )=> {
-    } 
+     getPost:( )=>{
 
-      // Add a second document with a generated ID.
-     /* db.collection("post").add({
-        first: "Alan",
-        middle: "Mathison",
-        last: "Turing",
-        born: 1912
-      })
-      .then(function(docRef) {
-         console.log("Document written with ID: ", docRef.id);
-      })
-       .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-
-
-
-
-    //visor
-      db.collection("users").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
-        });
-    });
-    */
-     
-     
-
-
+      return firebase.firestore().collection("posts").get()
+    },
     
+    getUserP:()=>{
+     var user = firebase.auth().currentUser;
+     var name, email, photoUrl, uid, emailVerified;
+     
+     if (user != null) {
+       name = user.displayName;
+       email = user.email;
+       photoUrl = user.photoURL;
+       emailVerified = user.emailVerified;
+       uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                        // this value to authenticate with your backend server, if
+                        // you have one. Use User.getToken() instead.
+     }
+    
+    },
 
-         
+      
  }
 
+     /* CREATE POST
+     .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      }); */
 
 
+      /*OBSERVER
+       firebase.auth().onAuthStateChanged(function(infUser) {
+     if (infUser) {
 
-
-  
-
-
- /*
-firebase.auth().onAuthStateChanged(function(infUser ) {
-          if (infUser ) {
-            // User is signed in.
-            console.log('existe el usuario')
-          } else {
-            // No user is signed in.
-            console.log('no existe el usuario')
-          }
-        });
-
-  */
-
-
-
-
-
-
-          /* authEmailAndPassword: async function authUser(infoUser){
+       //retornar una promesa 
+       //cb(infUser)
+      // User is signed in.
      
-    try {
-    await firebase.auth().createUserWithEmailAndPassword(infoUser.email , infoUser.pass);
-    controler.changeTmp('#/');
-    //console.log('pasara al blog')
-    }
-    catch(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        alert(errorCode);
-        var errorMessage = error.message;
-        // ...
+     } else {
+      // No user is signed in.
+       console.log('no existe usuario activo');
      }
-     
-   
-   } */
-
-
-/*
- observerUser: ( infoUser) => {
-      firebase.auth().onAuthStateChanged(function(infUser) {
-        if (user) {
-          // User is signed in.
-        } else {
-          // No user is signed in.
-        }
-      });
-
-     }
- */
-
-   
+   })//then(()=>{ si si existe user entonces muestrame el id del user})
+       */
