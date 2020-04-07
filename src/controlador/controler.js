@@ -12,10 +12,8 @@ export const controler = {
                 break;
             case '#/login':
                 sectionMain.appendChild(components.login());
-                
                 controler.start.signIn();
                  controler.observerUser();
-                                 
                break;
             case '#/createAccount':
                 sectionMain.appendChild(components.cerateAccount());
@@ -26,13 +24,13 @@ export const controler = {
                    
                 break;
                 default:
-                    
+                 
                  sectionMain.appendChild(components.nonExistent());
                   
        }
     },
 
-
+     //inicializa las vistas login y registro
      start: {
          signUp: ( ) => vista.signUp(),
          signIn: ( ) => vista.signIn(),        
@@ -40,29 +38,30 @@ export const controler = {
     },
      
      observerUser:( )=>{
-         modelo.observerModel();
+          modelo.observerModel( );
+       },
+       obUser:(user)=>{
+         return modelo.observerUser(user);
        },
 
      authEmailAndPassword: (infUser ) => {
-        //mandar info a modelo para hacer peticion a firebase
-        return modelo.authEmailAndPassword(infUser);
-        
+        return modelo.authEmailAndPassword(infUser); 
       },
-      authExistUser: (infUser) => {
-        
-       return modelo.authExistUser(infUser);
-       
 
+     authExistUser: (infUser) => { 
+        return modelo.authExistUser(infUser);
+      },
+
+     createPost: (newPostUser)=> {
+        return modelo.createPost(newPostUser);
       },
      
-
-      createPost: (newPostUser)=> {
-        
-         return modelo.createPost(newPostUser);
+     getPost:( )=>{
+         return modelo.getPost()
       },
-     
-      getPost:( )=>{
-          return modelo.getPost()
+
+      deletePost:( id) =>{
+          modelo.deletePost(id );
       }
 
 

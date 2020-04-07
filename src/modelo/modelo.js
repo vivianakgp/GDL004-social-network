@@ -3,70 +3,80 @@ import { controler } from '../controlador/controler.js';
 
  export const modelo = {
  
-
+  //detectar que usuario esta activo
   observerModel: ( ) => {
-    firebase.auth().onAuthStateChanged(function(user) {
+     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-         controler.changeTmp('#/blog');
-         var user = firebase.auth().currentUser.uid;
-          console.log(user);
-
+          controler.changeTmp('#/blog');
+        // var user = firebase.auth().currentUser.uid;
           } else {
           // No user is signed in.
-          console.log('no user is signed in')
+          controler.changeTmp('#/login')
            }
-    });
-  },
-     
-  
-  authEmailAndPassword: function authUser(infUser ){
-   return firebase.auth().createUserWithEmailAndPassword(infUser.email , infUser.pass);
+     });
+   },
+     observerUser:(user)=>{
+     return firebase.auth().onAuthStateChanged(user)
+     },
+     //registra nuevos usuarios
+     authEmailAndPassword: function authUser(infUser ){
+       return firebase.auth().createUserWithEmailAndPassword(infUser.email , infUser.pass)
+       .then((res) => {
+
+         res.user.updateProfile({ displayName: infUser.name})
+         return res;
+       });
    
      },
-
+    //autentifica si el usuario esta registrado
      authExistUser: (infUser ) => {
       return firebase.auth().signInWithEmailAndPassword(infUser.email, infUser.pass)  
      },
-
-    
-  //instala observador de objeto para : escuchar de Auth recibe notificaciones 
-  //cuando sucede algo importante en el objeto de Auth
-  //se va ejecutar en vista de login
-
-     
+    //crea documentos en la coleccion post
      createPost: (newPostUser) => {
-       console.log(newPostUser);
-       // Add a new document with a generated id.
-
-      return firebase.firestore().collection("posts").add({
+        //console.log(newPostUser);
+       return firebase.firestore().collection("post").add({
         texto: newPostUser,
         userId: firebase.auth().currentUser.uid
-      })
-      
+      });
+     
+     /* return firebase.firestore().doc("posts/useId").set({
+        texto: newPostUser,
+        userId: firebase.auth().currentUser.uid
+      })*/
 
      },
-
+     //obtiene de la coleccion post los documentos de usuario actual
      getPost:( )=>{
-
-      return firebase.firestore().collection("posts").get()
-    },
+     // return firebase.firestore().doc("posts/useId").get()
+     var user = firebase.auth().currentUser.uid;
+     console.log('***************'+' '+user+' '+'**************************');
+     return firebase.firestore().collection("post").where( 'userId', '==', user).get()
+     },
+    //borra los documentos
+    deletePost: (id)=>{
+      
+      firebase.firestore().collection("post").doc(id).delete().then(function() {
+        console.log("Document successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing document: ", error);
+    });
     
-    getUserP:()=>{
-     var user = firebase.auth().currentUser;
-     var name, email, photoUrl, uid, emailVerified;
-     
-     if (user != null) {
-       name = user.displayName;
-       email = user.email;
-       photoUrl = user.photoURL;
-       emailVerified = user.emailVerified;
-       uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                        // this value to authenticate with your backend server, if
-                        // you have one. Use User.getToken() instead.
-     }
+  
+    },
+    getUser:()=>{
+      var user = firebase.auth().currentUser;
+       var name, email, photoUrl, uid, emailVerified;
+
+        if (user != null) {
+          name = user.displayName;
+          email = user.email;
+          photoUrl = user.photoURL;
+          emailVerified = user.emailVerified;
+          uid = user.uid;
+}
     
     },
-
       
  }
 
@@ -93,3 +103,13 @@ import { controler } from '../controlador/controler.js';
      }
    })//then(()=>{ si si existe user entonces muestrame el id del user})
        */
+
+
+
+
+      /*
+      .then(function() {
+        console.log("Document successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing document: ", error);
+    }); */
