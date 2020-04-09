@@ -7,7 +7,7 @@ import { controler } from '../controlador/controler.js';
   observerModel: ( ) => {
      firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-          controler.changeTmp('#/blog');
+         // controler.changeTmp('#/blog');
         // var user = firebase.auth().currentUser.uid;
           } else {
           // No user is signed in.
@@ -47,23 +47,32 @@ import { controler } from '../controlador/controler.js';
 
      },
      //obtiene de la coleccion post los documentos de usuario actual
-     getPost:( )=>{
+     getPost:(cb)=>{
      // return firebase.firestore().doc("posts/useId").get()
      var user = firebase.auth().currentUser.uid;
      console.log('***************'+' '+user+' '+'**************************');
-     return firebase.firestore().collection("post").where( 'userId', '==', user).get()
+     return firebase.firestore().collection("post").where( 'userId', '==', user).onSnapshot(cb)
      },
     //borra los documentos
-    deletePost: (id)=>{
+    deletePost: (id) => {
       
       firebase.firestore().collection("post").doc(id).delete().then(function() {
         console.log("Document successfully deleted!");
     }).catch(function(error) {
         console.error("Error removing document: ", error);
     });
-    
-  
     },
+    
+    /*editPostModelo:( id) => {
+     
+      var washingtonRef = firebase.firestore().collection("post").doc(id);
+      var nweText = document.getElementById('textArea').value 
+      // Set the "capital" field of the city 'DC'
+      return washingtonRef.update({
+          text: nweText
+      })
+     
+    },*/
     getUser:()=>{
       var user = firebase.auth().currentUser;
        var name, email, photoUrl, uid, emailVerified;

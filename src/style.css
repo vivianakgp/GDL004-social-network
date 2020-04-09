@@ -146,9 +146,14 @@ font-size: 18px;
 .perfil{
     background-color: rgba(204, 202, 201, 0.096);
     margin-top: 25px;
+    height:200px ;
+    border-radius: 6px;
+    box-shadow:0 0 5px rgb(235, 241, 248) ;
+
 }
 .noticeOthers{
-    background-color: rgba(255, 99, 71, 0.116);
+    
+    margin-top: 25px;
     height:100px ;
 }
 .divFotoAndName{
@@ -160,3 +165,9 @@ font-size: 18px;
     width:30px;
     height: 30px;
 }
+.divShowMyPosts{
+    
+    margin-top: 15px;
+    
+    
+}  

@@ -21,6 +21,7 @@ export const controler = {
                 break;
             case '#/blog':
                  sectionMain.appendChild(components.blog());
+
                    
                 break;
                 default:
@@ -56,14 +57,17 @@ export const controler = {
         return modelo.createPost(newPostUser);
       },
      
-     getPost:( )=>{
-         return modelo.getPost()
+     getPost:(cb)=>{
+         return modelo.getPost(cb)
       },
 
       deletePost:( id) =>{
           modelo.deletePost(id );
+      },
+     /* editPost:( id )=> {
+        return modelo.editPostModelo(id ) 
       }
-
+*/
 
 
     }
