@@ -18,6 +18,10 @@ export default ( ) => {
     iconoLogOut.setAttribute("src","./images/exit.png");
     iconoLogOut.setAttribute("class","iconoLogOut");
     iconoLogOut.setAttribute("id","iconoLogOut");
+
+    iconoLogOut.addEventListener('click', () => {
+      controler.singOut()      
+    })
      
 
     const divFotoNameEdite = document.createElement('div');
@@ -104,6 +108,11 @@ export default ( ) => {
       const parrafo2img1 = document.createElement("p");
       parrafo2img1.innerHTML = "¿Que es unschooling?";
 
+      const anchor = document.createElement("a");
+      anchor.setAttribute("href","https://www.esfacilserverde.com/portal25/temas-verdes/halzo-tu-mismo/24-temas-verdes/educacion/141-del-homeschooling-al-unschooling-sin-morir-en-el-intento");
+      anchor.innerHTML = 'unschooling';
+      anchor.setAttribute("class","btn btn-link anchor");
+
     const img2 = document.createElement("img");
     img2.setAttribute("src","./images/homeschooling-blanco.jpg");
     img2.setAttribute("class","img-thumbnail img2");
@@ -138,23 +147,12 @@ export default ( ) => {
     divImg1Back.appendChild(tittle);
     divImg1Back.appendChild(parrafoImg1);
     divImg1Back.appendChild(parrafo2img1);
+    divImg1Back.appendChild(anchor);
     divNotice.appendChild(img2);
     divNotice.appendChild(img3);
 
    /*************************************************************************************************************/ 
-    //funcion de cerrar sesion
-    iconoLogOut.addEventListener('click',exit);
-    function exit(){
-               //console.log('evento de exit')
-              firebase.auth().signOut().then(function() {
-                console.log('cerrar sesion');
-                controler.singOut();
-              
-              }).catch(function(error) {
-                aconsole.log('error al cerrar sesion')
-              });
-           
-      }
+  
       
   
     //desabilitar el btn publicar
@@ -186,9 +184,12 @@ export default ( ) => {
     //btnMyPost.addEventListener('click', showMyPosts )
       //btnEdite.removeEventListener('click', showMyPosts )
       onSnapPost()
-     function  onSnapPost( ){
+    function  onSnapPost( ){
+     
+          
+        
         return controler.getPost((querySnapshot) => {
-         
+
           divshowPost1.innerHTML = '';
           querySnapshot.forEach((doc) => {
               console.log(`${doc.data().userId} => ${doc.data().texto} => ${doc.id}`);
@@ -274,7 +275,8 @@ export default ( ) => {
           
           });  
         });
-      }
+      
+    }
      
   
     

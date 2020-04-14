@@ -81,7 +81,23 @@ const  vista = {
    
   },
 
- 
+   //funcion de cerrar sesion
+  singOut:()=>{
+    const iconoLogOut = document.getElementById('iconoLogOut');
+    iconoLogOut.addEventListener('click',exit);
+    function exit(){
+               //console.log('evento de exit')
+              firebase.auth().signOut().then(function() {
+                console.log('cerrar sesion');
+                controler.singOut();
+              
+              }).catch(function(error) {
+                aconsole.log('error al cerrar sesion')
+              });
+           
+      }
+  },
+  
   
 
 

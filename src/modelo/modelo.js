@@ -8,7 +8,7 @@ import { controler } from '../controlador/controler.js';
      return firebase.auth().onAuthStateChanged(user);
    },
    observerUser:(user)=>{
-    return firebase.auth().onAuthStateChanged(user)
+    return firebase.auth().onAuthStateChanged(user);
     },
      
    //registra nuevos usuarios
@@ -28,46 +28,47 @@ import { controler } from '../controlador/controler.js';
    },
 
     //crea documentos en la coleccion post
-   createPost: (newPostUser) => {
+  createPost: (newPostUser) => {
         //console.log(newPostUser);
-       return firebase.firestore().collection("post").add({
-        texto: newPostUser,
-        userId: firebase.auth().currentUser.uid
-        });
+    return firebase.firestore().collection("post").add({
+      texto: newPostUser,
+      userId: firebase.auth().currentUser.uid
+    });
     
-    },
+  },
 
      //obtiene de la coleccion post los documentos de usuario actual
-   getPost:(cb)=>{
-     var user = firebase.auth().currentUser.uid;
-     //console.log('****MODELO***********'+' '+user+' '+'**************************');
-     return firebase.firestore().collection("post").where( 'userId', '==', user).onSnapshot(cb)
-    },
+  getPost:(cb)=>{
+    return modelo.observerUser((user) => {
+      return firebase.firestore().collection("post").where( 'userId', '==', user.uid).onSnapshot(cb)
+    })
+    //console.log('****MODELO***********'+' '+user+' '+'**************************'); 
+  },
 
     //borra los documentos
-   deletePost: (id) => {
+  deletePost: (id) => {
       
-      firebase.firestore().collection("post").doc(id).delete()
-      .then(function() {
-        console.log("Document successfully deleted!");
-      })
-      .catch(function(error) {
-        console.error("Error removing document: ", error);
-      });
-    },
+    firebase.firestore().collection("post").doc(id).delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error removing document: ", error);
+    });
+  },
 
     //editar  documentos
-    editPostModelo:(newText ,id) => {
-      var washingtonRef = firebase.firestore().collection("post").doc(id)
-        return washingtonRef.update({
-                 texto: newText
-             })
-     
-    },
+  editPostModelo:(newText ,id) => {
+    var washingtonRef = firebase.firestore().collection("post").doc(id)
+      return washingtonRef.update({
+        texto: newText
+      })
+    
+  },
     //cerrar sesion
-   /* iconoLogOut:( )=>{
-      return firebase.auth().signOut()
-    },*/
+  signOut:( )=>{
+    return firebase.auth().signOut()
+  },
 
 
    
@@ -77,8 +78,11 @@ import { controler } from '../controlador/controler.js';
 
 
 
-
-
+//  firebase.auth().signOut().then(function() {
+//   // Sign-out successful.
+// }).catch(function(error) {
+//   // An error happened.
+// });
 
 
       /*

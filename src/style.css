@@ -236,5 +236,12 @@ font-size: 18px;
   color: white;
   transform: rotateY(180deg);
 }
+.anchor{
+    font-size: 15px;
+    
+}
+.anchor:hover{
+    color:beige;
+}
 
 

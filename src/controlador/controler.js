@@ -2,31 +2,31 @@ import { components ,vista } from '../vista/index.js';
 import { modelo } from '../modelo/modelo.js';
 
 export const controler = {
-    changeTmp: (hash) => {
+    changeTmp: (hash) => {   
+      console.log(hash);
+         
         const sectionMain = document.getElementById ('container');
-        sectionMain.innerHTML = ' ';
+        sectionMain.innerHTML = '';
         switch (hash) {
+            case '':
+              sectionMain.appendChild(components.home());
             case '#/':
-                sectionMain.appendChild(components.home());
-                
-                break;
+              sectionMain.appendChild(components.home());
+              break;
             case '#/login':
-                sectionMain.appendChild(components.login());
-                controler.start.signIn();
-                 controler.observerUser();
-               break;
+              sectionMain.appendChild(components.login());
+              controler.start.signIn();
+              controler.observerUser();
+              break;
             case '#/createAccount':
-                sectionMain.appendChild(components.cerateAccount());
-                controler.start.signUp();
-                break;
+              sectionMain.appendChild(components.cerateAccount());
+              controler.start.signUp();
+              break;
             case '#/blog':
-                 sectionMain.appendChild(components.blog());
-                
-                   
-                break;
-                default:
-                 
-                 sectionMain.appendChild(components.nonExistent());
+              sectionMain.appendChild(components.blog());
+              break;
+            default:
+              sectionMain.appendChild(components.nonExistent());
                   
        }
     },
@@ -40,25 +40,34 @@ export const controler = {
     },
      
     singOut: ()=>{
-      controler.changeTmp('#/');
+      modelo.signOut()
+      .then(() => {
+        window.location.hash = '/';
+        controler.changeTmp( window.location.hash );
+      })
+      .catch((err) => {
+        console.log("No se pudo cerrar sesión");
+        
+      })
     },
      
-     observerUser:( )=>{
-          modelo.observerModel((user)=>{
-            if(user){
-              controler.changeTmp('#/blog');
-              //window.location.hash = '#/blog';
-              console.log(`${user.uid} ESTE ES EL ID DEL USUARIO DESDE CONTROLER`)
-            }else{
-            
-              controler.changeTmp('#/login');
-            }
-          });
-       },
+    observerUser:( )=>{
+        modelo.observerModel((user)=>{
+          if(user){
+            window.location.hash = '#/blog';
+            //controler.changeTmp( window.location.hash );
+          
+            console.log(`${user.uid} ESTE ES EL ID DEL USUARIO DESDE CONTROLER`)
+          }else{
+            window.location.hash = '#/login';
+            //controler.changeTmp('#/login');
+          }
+        });
+    },
 
-     obUser:(user)=>{
-         return modelo.observerUser(user);
-     },
+    obUser:(user)=>{
+        return modelo.observerUser(user);
+    },
 
      authEmailAndPassword: (infUser ) => {
         return modelo.authEmailAndPassword(infUser); 
@@ -82,11 +91,5 @@ export const controler = {
       editPost:( newText,id )=> {
         return modelo.editPostModelo(newText,id ) 
       },
-      /*logOut:( )=>{
-       return modelo.LogOutModelo();
-      }
-*/
-
-
-    }
+}
     
