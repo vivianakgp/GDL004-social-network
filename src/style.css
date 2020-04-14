@@ -83,27 +83,19 @@ body{
 }
 .TxtArea{
     font-size: 20px;
-    /*font-family: fantasy;*/
+    margin-top: 6px;
     padding-left:20px;
     padding-right: 10px;
     box-shadow:0 0 5px rgb(79, 84, 90) ;
     border-radius: 6px;
+    height: 100px;
+    width: 450px;
 }
-.main-section{
+.divPost{
     margin-top: 50px;
+    box-shadow:0 0 5px rgb(54, 59, 65);
 }
-/*.divShowPost{
-    background-color: rgba(226, 217, 96, 0.26);
-    font-size: 21px;
-    padding-left: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-family: cursive;
-    border-radius: 6px;
-    box-shadow:0 0 5px rgb(235, 241, 248) ;
-   
-}
-*/
+
 .divShowPost{
     
  background-color: rgba(240, 250, 246, 0.158);
@@ -139,35 +131,110 @@ font-size: 18px;
     height: 40px;
    
 }
-/*.divFotoNameEdite{
-  background-color: rgba(216, 191, 216, 0.295);
-  
-}*/
+.divFotoNameEdite{
+  /*background-color: rgba(245, 122, 169, 0.295);*/
+  margin-right: 15px;
+  border-radius: 6px;
+  box-shadow:0 0 5px rgb(54, 59, 65);
+  height: 150px;
+
+}
 .perfil{
-    background-color: rgba(204, 202, 201, 0.096);
-    margin-top: 25px;
+   /* background-color: rgba(204, 202, 201, 0.096);*/
+    margin-top: 50px;
+    margin-right: 25px;
     height:200px ;
     border-radius: 6px;
-    box-shadow:0 0 5px rgb(235, 241, 248) ;
+   /* box-shadow:0 0 5px rgb(235, 241, 248) ;*/
 
 }
 .noticeOthers{
+   /* background-color: rgba(0, 128, 128, 0.753);*/
+    box-shadow:0 0 5px rgb(235, 241, 248);
+    border-radius:6px ;
+    margin-top: 50px;
+    margin-left: 15px;
     
-    margin-top: 25px;
-    height:100px ;
 }
 .divFotoAndName{
-   /* background-color: rgba(0, 128, 128, 0.753);*/
-    font-family:cursive;
+    /*background-color: rgba(0, 128, 128, 0.753);*/
+    margin-bottom: 20px;
+    margin-left: 8px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 18px;
 }
 .showPostUserPhoto{
     width:30px;
     height: 30px;
 }
-.divShowMyPosts{
-    
-    margin-top: 15px;
-    
-    
+.divShowMyPosts{   
+    margin-top: 15px; 
 }  
+.img1{
+    margin-bottom: 15px;
+}
+.img2{
+    margin-bottom: 15px;
+}
+.divExitEdit{
+    /*background-color: rgba(216, 191, 216, 0.719);*/
+    height:40px;
+    margin-bottom: 10px;
+}
+.iconoLogOut{
+    width: 50px;
+    height: 50px;
+    margin-left:105px;
+}
+.iconoLogOut:hover{
+    -webkit-transform:scale(1.3);
+    transform:scale(1.3);
+}
+.editarPerfil{
+  margin-left: 10px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 280px;
+  height: 280px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color:rgba(211, 150, 219, 0.11);
+  /*color: black;*/
+  
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+

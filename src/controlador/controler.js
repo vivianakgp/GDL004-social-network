@@ -21,7 +21,7 @@ export const controler = {
                 break;
             case '#/blog':
                  sectionMain.appendChild(components.blog());
-
+                
                    
                 break;
                 default:
@@ -34,16 +34,31 @@ export const controler = {
      //inicializa las vistas login y registro
      start: {
          signUp: ( ) => vista.signUp(),
-         signIn: ( ) => vista.signIn(),        
+         signIn: ( ) => vista.signIn(), 
+         
          
     },
      
+    singOut: ()=>{
+      controler.changeTmp('#/');
+    },
+     
      observerUser:( )=>{
-          modelo.observerModel( );
+          modelo.observerModel((user)=>{
+            if(user){
+              controler.changeTmp('#/blog');
+              //window.location.hash = '#/blog';
+              console.log(`${user.uid} ESTE ES EL ID DEL USUARIO DESDE CONTROLER`)
+            }else{
+            
+              controler.changeTmp('#/login');
+            }
+          });
        },
-       obUser:(user)=>{
+
+     obUser:(user)=>{
          return modelo.observerUser(user);
-       },
+     },
 
      authEmailAndPassword: (infUser ) => {
         return modelo.authEmailAndPassword(infUser); 
@@ -64,10 +79,14 @@ export const controler = {
       deletePost:( id) =>{
           modelo.deletePost(id );
       },
-     /* editPost:( id )=> {
-        return modelo.editPostModelo(id ) 
+      editPost:( newText,id )=> {
+        return modelo.editPostModelo(newText,id ) 
+      },
+      /*logOut:( )=>{
+       return modelo.LogOutModelo();
       }
 */
 
 
     }
+    

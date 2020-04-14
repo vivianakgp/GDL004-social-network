@@ -68,7 +68,9 @@ const  vista = {
          
          return controler.authExistUser(infUser)
         .then(() => { 
-          controler.changeTmp('#/blog')
+          location.hash = '#/blog'
+          controler.changeTmp('#/blog');
+          
         })
         .catch(( )=>{
           alert('por favor crea una cuenta para acceder')
