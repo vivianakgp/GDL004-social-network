@@ -150,7 +150,7 @@ font-size: 18px;
 }
 .noticeOthers{
    /* background-color: rgba(0, 128, 128, 0.753);*/
-    box-shadow:0 0 5px rgb(235, 241, 248);
+   /* box-shadow:0 0 5px rgb(235, 241, 248);*/
     border-radius:6px ;
     margin-top: 50px;
     margin-left: 15px;
@@ -172,6 +172,8 @@ font-size: 18px;
 }  
 .img1{
     margin-bottom: 15px;
+    width: 260px;
+    height: 260px;
 }
 .img2{
     margin-bottom: 15px;
@@ -196,8 +198,8 @@ font-size: 18px;
 
 .flip-card {
   background-color: transparent;
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   perspective: 1000px;
   margin-bottom: 20px;
   

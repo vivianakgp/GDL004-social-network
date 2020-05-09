@@ -33,11 +33,13 @@ const  vista = {
       if( infUser.name == '' ){
         alert('please fill out all a fields');       
        }else if(infUser.confirmPass !== infUser.pass){
-         alert('please ckeck your password')
+         alert(' Revisa tu email  o contraseña');
        }else{
-        controler.authEmailAndPassword(infUser)
+        return controler.authEmailAndPassword(infUser)
         .then(( ) => {
            controler.changeTmp('#/login');
+           console.log(' se creo nueva cuenta  ')
+           //window.location.hash = '#/login';
                     
          })
          .catch((error)=> {
@@ -63,9 +65,10 @@ const  vista = {
 
        }
         formSignIn.reset();
-        if ( infUser.email !== '' && infUser.pass.length >= 6 ){
-     
-         
+        if( infUser.email !== '' && infUser.pass.length < 6 ){
+          alert('La contraseña debe ser mayor a 6 digitos')
+        }
+        else if( infUser.email !== '' && infUser.pass.length >= 6 ){
          return controler.authExistUser(infUser)
         .then(() => { 
           location.hash = '#/blog'
@@ -73,7 +76,7 @@ const  vista = {
           
         })
         .catch(( )=>{
-          alert('por favor crea una cuenta para acceder')
+          alert('Verifica que tu Email o Password sean correctos Si no tienes cuenta crea una  para acceder');
         })  
         }
    })
@@ -82,7 +85,7 @@ const  vista = {
   },
 
    //funcion de cerrar sesion
-  singOut:()=>{
+ /* singOut:()=>{
     const iconoLogOut = document.getElementById('iconoLogOut');
     iconoLogOut.addEventListener('click',exit);
     function exit(){
@@ -98,7 +101,7 @@ const  vista = {
       }
   },
   
-  
+  */
 
 
  }

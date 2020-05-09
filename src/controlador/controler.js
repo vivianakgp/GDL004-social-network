@@ -10,8 +10,10 @@ export const controler = {
         switch (hash) {
             case '':
               sectionMain.appendChild(components.home());
+              
             case '#/':
               sectionMain.appendChild(components.home());
+                
               break;
             case '#/login':
               sectionMain.appendChild(components.login());
@@ -21,9 +23,12 @@ export const controler = {
             case '#/createAccount':
               sectionMain.appendChild(components.cerateAccount());
               controler.start.signUp();
+              
+
               break;
             case '#/blog':
               sectionMain.appendChild(components.blog());
+            
               break;
             default:
               sectionMain.appendChild(components.nonExistent());

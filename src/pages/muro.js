@@ -1,9 +1,9 @@
 import { controler } from '../controlador/controler.js';
-export default ( ) => {
-   
-    const viewMuro = document.createElement("div");
-    viewMuro.setAttribute("class" , "container");
-    viewMuro.setAttribute("id" , "viewMuro");
+
+export default () => {
+  const viewMuro = document.createElement("div");
+    viewMuro.setAttribute("class","container");
+    viewMuro.setAttribute("id","viewMuro");
    
     const divMain = document.createElement("div");
     divMain.setAttribute("class","row");
@@ -19,10 +19,6 @@ export default ( ) => {
     iconoLogOut.setAttribute("class","iconoLogOut");
     iconoLogOut.setAttribute("id","iconoLogOut");
 
-    iconoLogOut.addEventListener('click', () => {
-      controler.singOut()      
-    })
-     
 
     const divFotoNameEdite = document.createElement('div');
     divFotoNameEdite.setAttribute("class","divFotoNameEdite")
@@ -38,6 +34,7 @@ export default ( ) => {
     controler.obUser(function(user){
       if(user){
         userName.innerHTML = user.displayName;
+        console.log(user.displayName+'°°°°°°°')
       }
     });
     
@@ -67,23 +64,11 @@ export default ( ) => {
 
     const divshowPost1 = document.createElement('div');
     divshowPost1.setAttribute("class","divShowPost1")
-//<img src="..." class="img-fluid" alt="Responsive image">
-/*<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-      <h1>John Doe</h1> 
-      <p>Architect & Engineer</p> 
-      <p>We love that guy</p>
-    </div>
-  </div>
-</div> */ 
+
     const divNotice = document.createElement("div");//ESTE ES EL DIV DE NOTICIAS/OTROS
     divNotice.setAttribute("class","col-sm noticeOthers");
 
-   const divImg1father = document.createElement("div");/********************************************************************* */
+   const divImg1father = document.createElement("div");
    divImg1father.setAttribute("class","flip-card");
 
    const divImg1Cheldren = document.createElement("div");
@@ -151,9 +136,11 @@ export default ( ) => {
     divNotice.appendChild(img2);
     divNotice.appendChild(img3);
 
-   /*************************************************************************************************************/ 
-  
-      
+   /***********************************************/ 
+    //se registra evento al boton cerrar sesion
+    iconoLogOut.addEventListener('click', () => {
+      controler.singOut();     
+    });
   
     //desabilitar el btn publicar
      btn_post.disabled = true;
@@ -181,13 +168,10 @@ export default ( ) => {
      
     };
     
-    //btnMyPost.addEventListener('click', showMyPosts )
-      //btnEdite.removeEventListener('click', showMyPosts )
+     //pedir de la coleccion post los documentos del usuario actual
       onSnapPost()
-    function  onSnapPost( ){
+    function onSnapPost(){
      
-          
-        
         return controler.getPost((querySnapshot) => {
 
           divshowPost1.innerHTML = '';
@@ -285,88 +269,3 @@ export default ( ) => {
 
     return viewMuro
 }
- /* .then( (docRef )=>{
-        //luego de que se guardo el texto en firestore mustrame el texto en nuevo div
-        textArea.value = ' '
-        console.log(newPostUser,' '+'promesa resuelta de createPost',docRef.id);
-        const divShowPost = document.createElement('div');
-        divShowPost.setAttribute("class","divShowPost");
-  
-        divPost.appendChild(divShowPost);
-  
-        const divUserProfile = document.createElement('div');
-  
-        divShowPost.appendChild(divUserProfile);
-  
-        const userPhoto = document.createElement('img');
-        userPhoto.setAttribute("src","./images/defaultUser.png");
-        userPhoto.setAttribute("class","showPostUserPhoto");
-  
-        divUserProfile.appendChild(userPhoto);
-
-        const nameUser = document.createElement('a');
-        controler.obUser(function(user){
-          if(user){
-            nameUser.innerHTML = user.displayName;
-          }
-        })
-
-        divUserProfile.appendChild(nameUser);
-  
-        const divTextPost = document.createElement('div');
-        divTextPost.setAttribute("class","divTextPost");
-        divTextPost.innerHTML = newPostUser ;
-  
-        divShowPost.appendChild(divTextPost);
-       
-        const divDeleteAndEdit = document.createElement('div');
-        divDeleteAndEdit.setAttribute("class","divDeleteAndEdit");
-        divShowPost.appendChild(divDeleteAndEdit);
-      
-        const trash = document.createElement('input');
-        trash.setAttribute("type","button");
-        trash.setAttribute("value","Eliminar");
-        trash.setAttribute("class","btn btn-info trash");
-        divDeleteAndEdit.appendChild(trash);
-
-        const edit = document.createElement('input');
-        edit.setAttribute("type","button");
-        edit.setAttribute("value","Editar");
-        edit.setAttribute("class","btn btn-success edit");
-        divDeleteAndEdit.appendChild(edit);
-       
-        trash.addEventListener('click',()=>{
-          //controler.deletePost(doc.id)
-          divShowPost.remove();
-      
-        })
-        
-      })
-      .catch((error )=>{
-           alert(error)
-      })  */ 
-
-
-      
-   /* const divShowMyPosts = document.createElement("div");
-    divShowMyPosts.setAttribute("class","divShowMyPosts")
-   
-
-    const btnMyPost = document.createElement("input");
-    btnMyPost.setAttribute("type","button");
-    btnMyPost.setAttribute("class","btn btn-dark");
-    btnMyPost.setAttribute("value","Mis Posts");
-   
-    */
-/* var washingtonRef = firebase.firestore().collection("post").doc(doc.id);
-       
-             return washingtonRef.update({
-                 texto: newText
-             }) 
-             
-             
-             
-             
-             
-             
-            */
