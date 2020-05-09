@@ -2,7 +2,7 @@ import Home from '../pages/home.js';
 import Login from '../pages/login.js';
 import CreateAccount from '../pages/createAccount.js';
 import Blog  from '../pages/muro.js';
-import different from '../pages/404.js'
+import different from '../pages/404.js';
 import { controler } from '../controlador/controler.js';
 export { components , vista };
 
