@@ -2,7 +2,6 @@ export default () => {
     const viewHome= `
     
    <div class = "contenedor">
-      <img class = "logo" src = "images/hommlogo.png">
       <h1>LIBRES PARA APRENDER</h1>  
             <nav class = "menu">
           <ul>

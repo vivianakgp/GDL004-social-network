@@ -4,15 +4,14 @@ import { modelo } from '../modelo/modelo.js';
 export const controler = {
     changeTmp: (hash) => {   
       console.log(hash);
-         
-        const sectionMain = document.getElementById ('container');
+       const sectionMain = document.getElementById ('container');
         sectionMain.innerHTML = '';
         switch (hash) {
             case '':
               sectionMain.appendChild(components.home());
               
             case '#/':
-              sectionMain.appendChild(components.home());
+              sectionMain.appendChild(components.login());
                 
               break;
             case '#/login':
