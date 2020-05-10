@@ -41,7 +41,7 @@ _Crea conección con otros padres homeschooling y permite compartir información
 
 * signIn/logIn
 
-    ![login](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-login.png?raw=true).
+    ![login](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/Login-edularity.png?raw=true).
 
 * signUp
 
