@@ -40,11 +40,12 @@ _Crea conección con otros padres homeschooling y permite compartir información
 ### Primer versión de escritorio.
 
 * signIn/logIn
-     ![login](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-login.png?raw=true).
+
+    ![login](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-login.png?raw=true).
 
 * signUp
 
-       ![signUp](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-signup.png?raw=true).
+    ![signUp](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-signup.png?raw=true).
 
 * muro
 
