@@ -1,105 +1,55 @@
-# Edularity
+# Edularity 🚀
 
-_Red social dirigida a padres que educan desde casa (homeschooling). _
+_"Libres para aprender"._
+_Red Social creada para padres que educan a sus hijos con métodos no tradicionales como Homeschooling, Unschooling._
+_Crea conección con otros padres homeschooling y permite compartir información, métodos y experiencias para fortalecer esta y nuevas formas de esducacón._
 
-## Historias de usuario
+## Historias de usuario.
 
-_._
+* El nuevo usuario puede crear una cuenta con email y password válidos para poder iniciar sesion e ingresar a la red social.
 
-Mira **Deployment** para conocer como desplegar el proyecto.
+* EL nuevo usuario  tiene  la opción de iniciar sesión con cuenta de Google o Facebook para ingresar a la red social sin necesidad de crear una cuenta de email válido.
 
+* Como usuario loggeado puede crear, guardar, modificar en el mismo lugar y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
 
-### Pre-requisitos 📋
+* Como usuario loggeado puede ver todos los posts públicos y privados que ha creado hasta ese momento, desde el más reciente hasta el más antiguo, así como la opción de poder cambiar la configuración de privacidad de sus post.
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+* El usuario loggeado, puedo dar like y llevar un conteo de likes en su publicación así como poder escribir, guardar, editar o eliminar un comentario en su publicación.
 
-```
-Da un ejemplo
-```
+* Al final puede  ingresar a la red social y visualizar los datos de su perfil creado o editarlos.
 
-### Instalación 🔧
+###  Arquitectura de la aplicación.
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+- Modularizando a través de *es modules* ([`import`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import) y [`export`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)).
+- Patrón  modelo - vista - controlador ([MVC](https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador)).
 
-_Dí cómo será ese paso_
+### Tecnoligias.
 
-```
-Da un ejemplo
-```
+* HTML5 semántico.
+* CSS3 selectores de clase.
+* Flexbox para lograr crear un diseño adaptativo para **mobile y desktop**.
+* JavaScript (ES6+).
+  - modularizar.
+  - Template strings.
+  - manipulacion de los elementos del DOM.
+  - sistema de rutas para cambiar de una vista a otra de manera dinámica (SPA).
+* Firestore manejo y persistencia de datos en tiempo real, implementar operaciones CRUD (Creación, Lectura, Actualización y eliminación)  de datos.
+* Firebase.
+* Bootstrap.
 
-_Y repite_
+### Primer versión de escritorio.
 
-```
-hasta finalizar
-```
+* signIn/logIn
+     ![login](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-login.png?raw=true).
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+* signUp
 
-## Ejecutando las pruebas ⚙️
+       ![signUp](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-signup.png?raw=true).
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+* muro
 
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
-## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
+    ![muro](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-muro.png?raw=true)
 
 
 
----
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+ By❤[Laboraroria/GDL004-social-network](https://github.com/Laboratoria/GDL004-social-network)😊
