@@ -45,11 +45,11 @@ _Crea conección con otros padres homeschooling y permite compartir información
 
 * signUp
 
-    ![signUp](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-signup.png?raw=true).
+    ![signUp](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/signup-edularity.png?raw=true)
 
 * muro
 
-    ![muro](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/edu-muro.png?raw=true)
+    ![muro](https://github.com/vivianakgp/GDL004-social-network/blob/master/src/images/Muro-edularity.png?raw=true)
 
 
 
