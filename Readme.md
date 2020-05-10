@@ -1,7 +1,7 @@
 # Edularity 🚀
 
-_"Libres para aprender"._
-_Red Social creada para padres que educan a sus hijos con métodos no tradicionales como Homeschooling, Unschooling._
+_"Libres para aprender"._<br/>
+_Red Social creada para padres que educan a sus hijos con métodos no tradicionales como homeschooling Unschooling._<br/>
 _Crea conección con otros padres homeschooling y permite compartir información, métodos y experiencias para fortalecer esta y nuevas formas de esducacón._
 
 ## Historias de usuario.
