@@ -1,32 +1,27 @@
-import { controler } from '../controlador/controler.js';
+//import { controler } from '../controlador/controler.js';
 
 
- export const modelo = {
- 
+export const modelo = {
   //detectar que usuario esta activo
-   observerModel: (user ) => {
-     return firebase.auth().onAuthStateChanged(user);
-   },
-   observerUser:(user)=>{
+  observerModel: (user ) => {
     return firebase.auth().onAuthStateChanged(user);
-    },
-     
+  },
+  observerUser:(user)=>{
+    return firebase.auth().onAuthStateChanged(user);
+  },
    //registra nuevos usuarios
-   authEmailAndPassword: function authUser(infUser ){
+  authEmailAndPassword: function authUser(infUser ){
     return firebase.auth().createUserWithEmailAndPassword(infUser.email , infUser.pass)
       .then((res) => {
-
-       res.user.updateProfile({ displayName: infUser.name})
-       return res;
+        res.user.updateProfile({ displayName: infUser.name})
+        return res;
       });
-   
-   },
+  },
 
     //autentifica si el usuario esta registrado
-   authExistUser: (infUser ) => {
+  authExistUser: (infUser ) => {
       return firebase.auth().signInWithEmailAndPassword(infUser.email, infUser.pass)  
-   },
-
+  },
     //crea documentos en la coleccion post
   createPost: (newPostUser) => {
         //console.log(newPostUser);
@@ -34,9 +29,7 @@ import { controler } from '../controlador/controler.js';
       texto: newPostUser,
       userId: firebase.auth().currentUser.uid
     });
-    
   },
-
      //obtiene de la coleccion post los documentos de usuario actual
   getPost:(cb)=>{
     return modelo.observerUser((user) => {
@@ -68,12 +61,8 @@ import { controler } from '../controlador/controler.js';
     //cerrar sesion
   signOut:( )=>{
     return firebase.auth().signOut()
-  },
-
-
-   
-      
- }
+  }, 
+}
 
 
 

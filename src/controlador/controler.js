@@ -1,14 +1,14 @@
 import { components ,vista } from '../vista/index.js';
 import { modelo } from '../modelo/modelo.js';
 
+
 export const controler = {
     changeTmp: (hash) => {   
-      console.log(hash);
        const sectionMain = document.getElementById ('container');
         sectionMain.innerHTML = '';
         switch (hash) {
             case '':
-              sectionMain.appendChild(components.home());
+              sectionMain.appendChild(components.login());
               
             case '#/':
               sectionMain.appendChild(components.login());
@@ -22,27 +22,20 @@ export const controler = {
             case '#/createAccount':
               sectionMain.appendChild(components.cerateAccount());
               controler.start.signUp();
-              
-
               break;
             case '#/blog':
               sectionMain.appendChild(components.blog());
-            
               break;
             default:
               sectionMain.appendChild(components.nonExistent());
-                  
-       }
+        }
     },
 
      //inicializa las vistas login y registro
-     start: {
-         signUp: ( ) => vista.signUp(),
-         signIn: ( ) => vista.signIn(), 
-         
-         
+    start: {
+        signUp: () => vista.signUp(),
+        signIn: () => vista.signIn(),
     },
-     
     singOut: ()=>{
       modelo.signOut()
       .then(() => {
@@ -50,50 +43,42 @@ export const controler = {
         controler.changeTmp( window.location.hash );
       })
       .catch((err) => {
-        console.log("No se pudo cerrar sesión");
+        console.log("Error al cerrar sesión");
         
       })
     },
-     
-    observerUser:( )=>{
+    observerUser:()=>{
         modelo.observerModel((user)=>{
           if(user){
             window.location.hash = '#/blog';
-            //controler.changeTmp( window.location.hash );
-          
             console.log(`${user.uid} ESTE ES EL ID DEL USUARIO DESDE CONTROLER`)
           }else{
             window.location.hash = '#/login';
-            //controler.changeTmp('#/login');
           }
         });
     },
-
     obUser:(user)=>{
-        return modelo.observerUser(user);
+      return modelo.observerUser(user);
+    },
+    authEmailAndPassword: (infUser ) => {
+      return modelo.authEmailAndPassword(infUser); 
     },
 
-     authEmailAndPassword: (infUser ) => {
-        return modelo.authEmailAndPassword(infUser); 
-      },
+    authExistUser: (infUser) => { 
+      return modelo.authExistUser(infUser);
+    },
 
-     authExistUser: (infUser) => { 
-        return modelo.authExistUser(infUser);
-      },
-
-     createPost: (newPostUser)=> {
-        return modelo.createPost(newPostUser);
-      },
-     
-     getPost:(cb)=>{
-         return modelo.getPost(cb)
-      },
-
-      deletePost:( id) =>{
-          modelo.deletePost(id );
-      },
-      editPost:( newText,id )=> {
-        return modelo.editPostModelo(newText,id ) 
-      },
+    createPost: (newPostUser)=> {
+      return modelo.createPost(newPostUser);
+    },
+    getPost:(cb)=>{
+      return modelo.getPost(cb)
+    },
+    deletePost:( id) =>{
+      modelo.deletePost(id );
+    },
+    editPost:( newText,id )=> {
+      return modelo.editPostModelo(newText,id ) 
+    },
 }
     

@@ -47,13 +47,13 @@ export default () => {
   const divOficons = document.createElement("div");
   divOficons.setAttribute("class", "col-12");
 
-  const imgface = document.createElement("img");
+ /*  const imgface = document.createElement("img");
   imgface.setAttribute("src", "/images/face.png");
   imgface.setAttribute("class","icons");
 
   const imgGoogle = document.createElement("img");
   imgGoogle.setAttribute("src", "/images/gmail.png");
-  imgGoogle.setAttribute("class","icons");
+  imgGoogle.setAttribute("class","icons"); */
 
   const divLink = document.createElement("div");
   divLink.setAttribute("class", "col-12 create-account");
@@ -73,10 +73,10 @@ export default () => {
   divOfpass.appendChild(pass);
   form.appendChild(btn);
   divDad2login.appendChild(divOftext);
-  divOftext.appendChild(elemnParrafo);
+  //divOftext.appendChild(elemnParrafo);
   divDad2login.appendChild(divOficons);
-  divOficons.appendChild(imgface);
-  divOficons.appendChild(imgGoogle);
+ /*  divOficons.appendChild(imgface);
+  divOficons.appendChild(imgGoogle); */
   divDad2login.appendChild(divLink);
   divLink.appendChild(anchor);
 

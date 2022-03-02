@@ -10,13 +10,8 @@ Edularity crea conexión con otros padres homeschooling comparte información, m
 
 * EL nuevo usuario  tiene  la opción de iniciar sesión con cuenta de Google o Facebook para ingresar a la red social sin necesidad de crear una cuenta de email válido.
 
-* Como usuario loggeado puede crear, guardar, modificar en el mismo lugar y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
+* Como usuario loggeado puede crear, guardar, modificar en el mismo lugar y eliminar una publicación (post).
 
-* Como usuario loggeado puede ver todos los posts públicos y privados que ha creado hasta ese momento, desde el más reciente hasta el más antiguo, así como la opción de poder cambiar la configuración de privacidad de sus post.
-
-* El usuario loggeado, puedo dar like y llevar un conteo de likes en su publicación así como poder escribir, guardar, editar o eliminar un comentario en su publicación.
-
-* Al final puede  ingresar a la red social y visualizar los datos de su perfil creado o editarlos.
 
 ###  Arquitectura de la aplicación.
 
