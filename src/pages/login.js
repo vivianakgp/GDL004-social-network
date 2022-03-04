@@ -40,9 +40,9 @@ export default () => {
   const divOftext = document.createElement("div");
   divOftext.setAttribute("class","text");
 
-  const parrafo = document.createElement("p");
+/*   const parrafo = document.createElement("p");
   const text = document.createTextNode("o bien ingresa con...");
-  const elemnParrafo = parrafo.appendChild(text);
+  const elemnParrafo = parrafo.appendChild(text) */;
 
   const divOficons = document.createElement("div");
   divOficons.setAttribute("class", "col-12");
@@ -60,7 +60,7 @@ export default () => {
 
   const anchor = document.createElement("a");
   anchor.setAttribute("href","#/createAccount");
-  anchor.innerHTML = "CrearCuenta";
+  anchor.innerHTML = "Crear Cuenta";
 
   divDadLogin.appendChild(divDad1login);
   divDad1login.appendChild(divDad2login);

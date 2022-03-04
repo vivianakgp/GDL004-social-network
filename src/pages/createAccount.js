@@ -62,10 +62,10 @@ export default () => {
     btnRegistrar.setAttribute("class", "btn btn-primary btn-lg btn-block");
     btnRegistrar.setAttribute("id", "btnSignUp");
 
-    const anchor = document.createElement("a");
+/*     const anchor = document.createElement("a");
     anchor.setAttribute("href","#/");
     anchor.setAttribute("class","btn btn-outline-success")
-    anchor.innerHTML = "Home";
+    anchor.innerHTML = "Home"; */
 
     const anchor2 = document.createElement("a");
      anchor2.setAttribute("href","#/login");
@@ -75,7 +75,7 @@ export default () => {
   divNewAccount.appendChild(divSeccion);
   divSeccion.appendChild(divModal);
   divModal.appendChild(divRegistro);
-  divRegistro.appendChild(anchor);
+  /* divRegistro.appendChild(anchor); */
   divRegistro.appendChild(anchor2);
   divRegistro.appendChild(divText);
   divText.appendChild(elemntParrafo);

@@ -8,6 +8,11 @@ body{
      background-size:cover;
      font-family: cursive;    
 }
+.home__contenedor{
+    width: 70%;
+    margin: 100px auto;
+    background-color: azure;
+}
 .main-section{
     margin: 0 auto;
     margin-top:25%;
