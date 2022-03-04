@@ -8,7 +8,7 @@ export const controler = {
         sectionMain.innerHTML = '';
         switch (hash) {
             case '':
-              sectionMain.appendChild(components.login());
+              sectionMain.appendChild(components.home());
               
             case '#/':
               sectionMain.appendChild(components.login());
